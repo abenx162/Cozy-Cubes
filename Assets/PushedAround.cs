@@ -12,6 +12,15 @@ public class PushedAround : MonoBehaviour
         return Mathf.Abs(_rigidbody.velocity.x) < 0.001f && Mathf.Abs(_rigidbody.velocity.y) < 0.001f;
     }
 
+    private void Bounce() {
+        _transform.position = _transform.position + new Vector3(v.x * -0.01f, v.y * -0.01f, 0);
+    }
+
+    private void SnapToGrid() {
+        Vector3 pos = _transform.position;
+        _transform.position = new Vector3(Mathf.Round(pos.x + 0.5f) - 0.5f, Mathf.Round(pos.y + 0.5f) - 0.5f, 0);
+    }
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -29,12 +38,12 @@ public class PushedAround : MonoBehaviour
         v = _rigidbody.velocity;
 
         if (IsStationary()) {
-            Vector3 pos = _transform.position;
-            _transform.position = new Vector3(Mathf.Round(pos.x + 0.5f) - 0.5f, Mathf.Round(pos.y + 0.5f) - 0.5f, 0);
+            SnapToGrid();
         }  
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
+
         if (collision.gameObject.CompareTag("PlayerGroup")) {
             gameObject.tag = "PlayerGroup";
         }
@@ -46,6 +55,6 @@ public class PushedAround : MonoBehaviour
             }
         }
 
-        _transform.position = _transform.position + new Vector3(v.x * -0.01f, v.y * -0.01f, 0);
+        Bounce();
     }
 }

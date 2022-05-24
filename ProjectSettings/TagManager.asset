@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerGroup
+  - Goal
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,9 @@ TagManager:
   m_SortingLayers:
   - name: BG
     uniqueID: 1702076281
+    locked: 0
+  - name: Goals
+    uniqueID: 843917409
     locked: 0
   - name: Default
     uniqueID: 0

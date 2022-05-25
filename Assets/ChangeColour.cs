@@ -7,6 +7,10 @@ public class ChangeColour : MonoBehaviour
     [SerializeField] private Material myMaterial;
     private int inGoal;
 
+    public bool Done() {
+        return inGoal == 1 && gameObject.GetComponent<PushedAround>().IsStationary();
+    }
+
     void Start() {
         inGoal = 0;
         myMaterial = GetComponent<Renderer>().material;

@@ -8,7 +8,7 @@ public class PushedAround : MonoBehaviour
     private Transform _transform;
     private Vector3 v;
     
-    private bool IsStationary() {
+    public bool IsStationary() {
         return Mathf.Abs(_rigidbody.velocity.x) < 0.001f && Mathf.Abs(_rigidbody.velocity.y) < 0.001f;
     }
 

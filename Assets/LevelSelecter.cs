@@ -14,7 +14,9 @@ public class LevelSelecter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKey("r")) {
+            RestartLevel();
+        }
     }
 
     public void RestartLevel()

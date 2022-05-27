@@ -1,4 +1,5 @@
-
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -7,9 +8,10 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Transform _transform;
     private Vector3 v;
+
     [SerializeField] private Material myMaterial;
 
-    private bool IsStationary() {
+    public bool IsStationary() {
         return Mathf.Abs(_rigidbody.velocity.x) < 0.001f && Mathf.Abs(_rigidbody.velocity.y) < 0.001f;
     }
 
@@ -33,7 +35,6 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        
         if (IsStationary()) {
             SnapToGrid();
             gameObject.tag = "PlayerGroup";
@@ -54,8 +55,6 @@ public class Movement : MonoBehaviour
         if (gameObject.CompareTag("Untagged")) {
             _rigidbody.velocity = new Vector2(0, 0);
         }
-
-        //Debug.Log(v);
     }
 
     void OnCollisionEnter2D(Collision2D collision) {

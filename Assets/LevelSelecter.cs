@@ -5,16 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelecter : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("r")) {
+        if (Input.GetKeyDown("r")) {
             RestartLevel();
         }
     }

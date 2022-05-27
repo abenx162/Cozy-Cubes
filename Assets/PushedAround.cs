@@ -39,7 +39,7 @@ public class PushedAround : MonoBehaviour
 
         if (IsStationary()) {
             SnapToGrid();
-        }  
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision) {

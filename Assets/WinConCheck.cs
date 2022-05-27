@@ -9,14 +9,19 @@ public class WinConCheck : MonoBehaviour
 
     void Update()
     {
-        if (AllClear()) {
+        if (GameObject.Find("Player").GetComponent<Movement>().IsStationary() && AllClear()) {
             WinTxt.SetActive(true);
         }
     }
 
     private bool AllClear() {
-        return GameObject.Find("Square (2)").GetComponent<ChangeColour>().Done() &&
-                GameObject.Find("Square (3)").GetComponent<ChangeColour>().Done() &&
-                GameObject.Find("Square (4)").GetComponent<ChangeColour>().Done();
+        bool clear = true;
+        Object[] blocks = Object.FindObjectsOfType<ChangeColour>();
+        foreach (Object item in blocks)
+        {
+            ChangeColour script = (ChangeColour) item;
+            clear = clear && script.Done();
+        }
+        return clear;
     }
 }

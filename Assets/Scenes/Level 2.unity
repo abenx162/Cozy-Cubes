@@ -564,6 +564,7 @@ GameObject:
   - component: {fileID: 232554428}
   - component: {fileID: 232554427}
   - component: {fileID: 232554426}
+  - component: {fileID: 232554429}
   m_Layer: 5
   m_Name: Undo
   m_TagString: Untagged
@@ -636,7 +637,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1354151236}
+      - m_Target: {fileID: 232554429}
         m_TargetAssemblyTypeName: LevelUndo, Assembly-CSharp
         m_MethodName: UndoLevel
         m_Mode: 1
@@ -686,6 +687,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232554423}
   m_CullTransparentMesh: 1
+--- !u!114 &232554429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232554423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159d9f4a2eb17ce4f8313a762907147e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &400500784
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +711,7 @@ GameObject:
   - component: {fileID: 400500789}
   - component: {fileID: 400500788}
   - component: {fileID: 400500787}
-  - component: {fileID: 400500786}
+  - component: {fileID: 400500790}
   m_Layer: 5
   m_Name: Select Level
   m_TagString: Untagged
@@ -727,18 +740,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 112}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &400500786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400500784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59eb1646c4b2d4548badd7eab46bcf69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &400500787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +784,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1884894384}
+      - m_Target: {fileID: 400500790}
         m_TargetAssemblyTypeName: LevelSelecter, Assembly-CSharp
         m_MethodName: GoToLevelSelect
         m_Mode: 1
@@ -833,6 +834,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400500784}
   m_CullTransparentMesh: 1
+--- !u!114 &400500790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400500784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59eb1646c4b2d4548badd7eab46bcf69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &425914720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,7 +1232,7 @@ GameObject:
   - component: {fileID: 818048622}
   - component: {fileID: 818048621}
   - component: {fileID: 818048620}
-  - component: {fileID: 818048619}
+  - component: {fileID: 818048623}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -1248,18 +1261,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 201}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &818048619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818048617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59eb1646c4b2d4548badd7eab46bcf69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &818048620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,7 +1305,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1884894384}
+      - m_Target: {fileID: 818048623}
         m_TargetAssemblyTypeName: LevelSelecter, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
@@ -1354,6 +1355,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818048617}
   m_CullTransparentMesh: 1
+--- !u!114 &818048623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818048617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59eb1646c4b2d4548badd7eab46bcf69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &993807966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,50 +1918,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1354151235
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1354151237}
-  - component: {fileID: 1354151236}
-  m_Layer: 0
-  m_Name: LevelUndoer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1354151236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354151235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 159d9f4a2eb17ce4f8313a762907147e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1354151237
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354151235}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1412277278
 GameObject:
@@ -2685,50 +2654,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!1 &1884894383
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1884894385}
-  - component: {fileID: 1884894384}
-  m_Layer: 0
-  m_Name: LevelSelecter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1884894384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884894383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59eb1646c4b2d4548badd7eab46bcf69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1884894385
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884894383}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1898183193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,7 +3098,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2098232699
 GameObject:

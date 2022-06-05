@@ -29,8 +29,7 @@ public class Movement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _transform = GetComponent<Transform>();
         myMaterial = GetComponent<Renderer>().material;
-        myMaterial.color = new Color32(0, 0, 255, 255);
-        gameObject.tag = "PlayerGroup";
+        myMaterial.color = new Color32(0, 178, 255, 255);
     }
 
     private void Update()
@@ -54,6 +53,7 @@ public class Movement : MonoBehaviour
 
         if (gameObject.CompareTag("Untagged")) {
             _rigidbody.velocity = new Vector2(0, 0);
+            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -62,7 +62,7 @@ public class Movement : MonoBehaviour
         if (collision.gameObject != GameObject.Find("Tilemap")) {
             _rigidbody.velocity = v;
         }
-
+        GetComponent<AudioSource>().Play();
         Bounce();
     }
 

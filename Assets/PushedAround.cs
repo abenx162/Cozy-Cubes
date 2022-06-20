@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,7 @@ public class PushedAround : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Transform _transform;
     private Vector3 v;
+    private String dir = "left";
     
     public bool IsStationary() {
         return Mathf.Abs(_rigidbody.velocity.x) < 0.001f && Mathf.Abs(_rigidbody.velocity.y) < 0.001f;
@@ -18,7 +19,18 @@ public class PushedAround : MonoBehaviour
 
     private void SnapToGrid() {
         Vector3 pos = _transform.position;
-        _transform.position = new Vector3(Mathf.Round(pos.x + 0.5f) - 0.5f, Mathf.Round(pos.y + 0.5f) - 0.5f, 0);
+        if (dir == "left") {
+            _transform.position = new Vector3(Mathf.Ceil(pos.x + 0.5f) - 0.5f, Mathf.Round(pos.y + 0.5f) - 0.5f, 0);
+        }
+        if (dir == "right") {
+            _transform.position = new Vector3(Mathf.Floor(pos.x + 0.5f) - 0.5f, Mathf.Round(pos.y + 0.5f) - 0.5f, 0);
+        }
+        if (dir == "up") {
+            _transform.position = new Vector3(Mathf.Round(pos.x + 0.5f) - 0.5f, Mathf.Floor(pos.y + 0.5f) - 0.5f, 0);
+        }
+        if (dir == "down") {
+            _transform.position = new Vector3(Mathf.Round(pos.x + 0.5f) - 0.5f, Mathf.Ceil(pos.y + 0.5f) - 0.5f, 0);
+        }
     }
 
     void Start()
@@ -36,6 +48,8 @@ public class PushedAround : MonoBehaviour
         }
 
         v = _rigidbody.velocity;
+
+        dir = GameObject.Find("Player").GetComponent<Movement>().getPlayerDir();
 
         if (IsStationary()) {
             SnapToGrid();

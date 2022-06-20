@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Transform _transform;
     private Vector3 v;
+    private String dir = "left";
 
     [SerializeField] private Material myMaterial;
 
@@ -15,13 +16,24 @@ public class Movement : MonoBehaviour
         return Mathf.Abs(_rigidbody.velocity.x) < 0.001f && Mathf.Abs(_rigidbody.velocity.y) < 0.001f;
     }
 
-    private void Bounce() {
-        _transform.position = _transform.position + new Vector3(v.x * -0.01f, v.y * -0.01f, 0);
+    public String getPlayerDir() {
+        return dir;
     }
 
     private void SnapToGrid() {
         Vector3 pos = _transform.position;
-        _transform.position = new Vector3(Mathf.Round(pos.x + 0.5f) - 0.5f, Mathf.Round(pos.y + 0.5f) - 0.5f, 0);
+        if (dir == "left") {
+            _transform.position = new Vector3(Mathf.Ceil(pos.x + 0.5f) - 0.5f, Mathf.Round(pos.y + 0.5f) - 0.5f, 0);
+        }
+        if (dir == "right") {
+            _transform.position = new Vector3(Mathf.Floor(pos.x + 0.5f) - 0.5f, Mathf.Round(pos.y + 0.5f) - 0.5f, 0);
+        }
+        if (dir == "up") {
+            _transform.position = new Vector3(Mathf.Round(pos.x + 0.5f) - 0.5f, Mathf.Floor(pos.y + 0.5f) - 0.5f, 0);
+        }
+        if (dir == "down") {
+            _transform.position = new Vector3(Mathf.Round(pos.x + 0.5f) - 0.5f, Mathf.Ceil(pos.y + 0.5f) - 0.5f, 0);
+        }
     }
 
     private void Start()
@@ -39,16 +51,18 @@ public class Movement : MonoBehaviour
             gameObject.tag = "PlayerGroup";
         }    
 
-        var horimovement = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
         if (Input.GetButtonDown("Horizontal") && IsStationary()) {
+            var horimovement = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
             _rigidbody.velocity = new Vector2(horimovement * MovementSpeed, 0);
             v = _rigidbody.velocity;
+            dir = horimovement == 1 ? "right" : "left";
         }
 
-        var vertmovement = Input.GetAxis("Vertical") > 0 ? 1 : -1;
         if (Input.GetButtonDown("Vertical") && IsStationary()) {
+            var vertmovement = Input.GetAxis("Vertical") > 0 ? 1 : -1;
             _rigidbody.velocity = new Vector2(0, vertmovement * MovementSpeed);
             v = _rigidbody.velocity;
+            dir = vertmovement == 1 ? "up" : "down";
         }
 
         if (gameObject.CompareTag("Untagged")) {
@@ -63,7 +77,7 @@ public class Movement : MonoBehaviour
             _rigidbody.velocity = v;
         }
         GetComponent<AudioSource>().Play();
-        Bounce();
+        
     }
 
 }

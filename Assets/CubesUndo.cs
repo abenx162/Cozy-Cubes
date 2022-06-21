@@ -9,6 +9,11 @@ public class CubesUndo : MonoBehaviour
     private Transform _transform;
     private Rigidbody2D _rigidbody;
 
+    public int Moves()
+    {
+        return PrevPos.Count;
+    }
+
     public void Undo() {
         if (PrevPos.Count != 0) {
             _transform.position = PrevPos.Pop();

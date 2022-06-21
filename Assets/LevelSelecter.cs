@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Mono.Data.Sqlite;
 
 public class LevelSelecter : MonoBehaviour
 {
+    private string dbName = "URI=file:LevelDB.db";
+
     void Start()
     {
 
@@ -27,24 +32,60 @@ public class LevelSelecter : MonoBehaviour
         SceneManager.LoadScene("Level Select");
     }
 
+    private bool IsUnlocked(string id)
+    {
+        bool result = false;
+        using (var connection = new SqliteConnection(dbName))
+        {
+            connection.Open();
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM LevelTable WHERE ID = " + id + ";";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+
+                        // Debug.Log(reader["Unlocked"]);
+                        return Convert.ToBoolean(reader["Unlocked"]);
+                    
+                    reader.Close();
+                }
+            }
+            connection.Close();
+        }
+        return result;
+    }
+
     public void GoToLevel1()
     {
-        SceneManager.LoadScene("Level 1");
+        if (IsUnlocked("1"))
+        {
+            SceneManager.LoadScene("Level 1");
+        }        
     }
 
     public void GoToLevel2()
     {
-        SceneManager.LoadScene("Level 2");
+        if (IsUnlocked("2"))
+        {
+            SceneManager.LoadScene("Level 2");
+        }
     }
 
     public void GoToLevel3()
     {
-        SceneManager.LoadScene("Level 3");
+        if (IsUnlocked("3"))
+        {
+            SceneManager.LoadScene("Level 3");
+        }
     }
 
     public void GoToLevel4()
     {
-        SceneManager.LoadScene("Level 4");
+        if (IsUnlocked("4"))
+        {
+            SceneManager.LoadScene("Level 4");
+        }
     }
 
     public void GoToLevel5()

@@ -4,15 +4,33 @@ using System.Data;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Mono.Data.Sqlite;
+using TMPro;
 
 public class LevelSelecter : MonoBehaviour
 {
     private string dbName = "URI=file:LevelDB.db";
+    private Button btn;
+    private string txt;
+    private ColorBlock colorblk;
 
     void Start()
     {
+        btn = gameObject.GetComponent<Button>();
+        txt = btn.GetComponentInChildren<TextMeshProUGUI>().text;
+        colorblk = btn.colors;
 
+        if (txt != "Restart" && txt != "Select Level" && !IsUnlocked(txt)) {
+            btn.interactable = false;
+        }
+
+        if (txt != "Restart" && txt != "Select Level" && IsCompleted(txt)) {
+            colorblk.normalColor = new Color32(25, 195, 44, 255);
+            colorblk.highlightedColor = new Color32(15, 185, 34, 255);
+            colorblk.pressedColor = new Color32(0, 170, 19, 255);
+            btn.colors = colorblk;
+        }
     }
 
     void Update()
@@ -45,7 +63,6 @@ public class LevelSelecter : MonoBehaviour
                 {
                     while (reader.Read())
 
-                        // Debug.Log(reader["Unlocked"]);
                         return Convert.ToBoolean(reader["Unlocked"]);
                     
                     reader.Close();
@@ -56,68 +73,35 @@ public class LevelSelecter : MonoBehaviour
         return result;
     }
 
-    public void GoToLevel1()
+    private bool IsCompleted(string id)
     {
-        if (IsUnlocked("1"))
+        bool result = false;
+        using (var connection = new SqliteConnection(dbName))
         {
-            SceneManager.LoadScene("Level 1");
-        }        
+            connection.Open();
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM LevelTable WHERE ID = " + id + ";";
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+
+                        return Convert.ToBoolean(reader["Completed"]);
+                    
+                    reader.Close();
+                }
+            }
+            connection.Close();
+        }
+        return result;
     }
 
-    public void GoToLevel2()
+    public void GoToLevel()
     {
-        if (IsUnlocked("2"))
+        if (IsUnlocked(txt))
         {
-            SceneManager.LoadScene("Level 2");
+            SceneManager.LoadScene("Level " + txt);
         }
     }
-
-    public void GoToLevel3()
-    {
-        if (IsUnlocked("3"))
-        {
-            SceneManager.LoadScene("Level 3");
-        }
-    }
-
-    public void GoToLevel4()
-    {
-        if (IsUnlocked("4"))
-        {
-            SceneManager.LoadScene("Level 4");
-        }
-    }
-
-    public void GoToLevel5()
-    {
-        SceneManager.LoadScene("Level 5");
-    }
-
-    public void GoToLevel6()
-    {
-        SceneManager.LoadScene("Level 6");
-    }
-
-    public void GoToLevel7()
-    {
-        SceneManager.LoadScene("Level 7");
-    }
-
-    public void GoToLevel8()
-    {
-        SceneManager.LoadScene("Level 8");
-    }
-
-    public void GoToLevel9()
-    {
-        SceneManager.LoadScene("Level 9");
-    }
-
-    public void GoToLevel10()
-    {
-        SceneManager.LoadScene("Level 10");
-    }
-
-    
 
 }

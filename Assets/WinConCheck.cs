@@ -53,6 +53,8 @@ public class WinConCheck : MonoBehaviour
                 }
                 connection.Close();
             }
+
+            Invoke("ReturnToLevelSelect", 1);
         }
     }
 
@@ -65,5 +67,9 @@ public class WinConCheck : MonoBehaviour
             clear = clear && script.Done();
         }
         return clear;
+    }
+
+    private void ReturnToLevelSelect() {
+        SceneManager.LoadScene("Level Select");
     }
 }

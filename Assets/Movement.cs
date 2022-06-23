@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Transform _transform;
     private Vector3 v;
-    private String dir = "left";
+    private string dir = "left";
 
     [SerializeField] private Material myMaterial;
 
@@ -16,8 +16,19 @@ public class Movement : MonoBehaviour
         return Mathf.Abs(_rigidbody.velocity.x) < 0.001f && Mathf.Abs(_rigidbody.velocity.y) < 0.001f;
     }
 
-    public String getPlayerDir() {
+    public String GetPlayerDir() {
         return dir;
+    }
+
+    public void ReversePlayerDir() {
+        _rigidbody.velocity = -v;
+        v = _rigidbody.velocity;
+        dir = _rigidbody.velocity.x > 0 ? "right"
+                  : _rigidbody.velocity.x < 0
+                  ? "left"
+                  : _rigidbody.velocity.y > 0
+                  ? "up"
+                  : "down";
     }
 
     private void SnapToGrid() {
@@ -69,6 +80,7 @@ public class Movement : MonoBehaviour
             _rigidbody.velocity = new Vector2(0, 0);
             GetComponent<AudioSource>().Play();
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -76,6 +88,18 @@ public class Movement : MonoBehaviour
         if (collision.gameObject != GameObject.Find("Tilemap")) {
             _rigidbody.velocity = v;
         }
+
+        if (collision.gameObject == GameObject.Find("Tilemap")) {
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("PlayerGroup");   
+            foreach (GameObject item in taggedObjects) {
+                item.tag = "Untagged";
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Bounce")) {
+            ReversePlayerDir();
+        }
+
         GetComponent<AudioSource>().Play();
         
     }

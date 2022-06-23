@@ -49,7 +49,7 @@ public class PushedAround : MonoBehaviour
 
         v = _rigidbody.velocity;
 
-        dir = GameObject.Find("Player").GetComponent<Movement>().getPlayerDir();
+        dir = GameObject.Find("Player").GetComponent<Movement>().GetPlayerDir();
 
         if (IsStationary()) {
             SnapToGrid();
@@ -67,6 +67,14 @@ public class PushedAround : MonoBehaviour
             foreach (GameObject item in taggedObjects) {
                 item.tag = "Untagged";
             }
+        }
+
+        if (collision.gameObject.CompareTag("Bounce")) {
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("PlayerGroup");   
+            foreach (GameObject item in taggedObjects) {
+                item.GetComponent<Rigidbody2D>().velocity *= -1;                
+            }
+            GameObject.Find("Player").GetComponent<Movement>().ReversePlayerDir();
         }
 
         Bounce();

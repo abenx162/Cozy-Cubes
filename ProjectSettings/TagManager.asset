@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerGroup
   - Goal
+  - Bounce
   layers:
   - Default
   - TransparentFX

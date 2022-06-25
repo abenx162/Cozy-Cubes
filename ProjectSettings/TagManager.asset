@@ -7,6 +7,8 @@ TagManager:
   - PlayerGroup
   - Goal
   - Bounce
+  - OrangePortal
+  - Obstacle
   layers:
   - Default
   - TransparentFX

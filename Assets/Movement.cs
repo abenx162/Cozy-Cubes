@@ -100,6 +100,16 @@ public class Movement : MonoBehaviour
             ReversePlayerDir();
         }
 
+        if (collision.gameObject.CompareTag("OrangePortal")) {
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("OrangePortal");   
+            foreach (GameObject item in taggedObjects) {
+                if (item != collision.gameObject) {
+                    _transform.position = item.GetComponent<Transform>().position + (Vector3) item.GetComponent<Portal>().direction;
+                    _rigidbody.velocity = v;
+                }
+            }
+        }
+
         GetComponent<AudioSource>().Play();
         
     }

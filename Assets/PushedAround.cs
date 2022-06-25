@@ -62,7 +62,7 @@ public class PushedAround : MonoBehaviour
             gameObject.tag = "PlayerGroup";
         }
 
-        if (collision.gameObject == GameObject.Find("Tilemap")) {
+        if (collision.gameObject.CompareTag("Obstacle")) {
             GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("PlayerGroup");   
             foreach (GameObject item in taggedObjects) {
                 item.tag = "Untagged";
@@ -75,6 +75,15 @@ public class PushedAround : MonoBehaviour
                 item.GetComponent<Rigidbody2D>().velocity *= -1;                
             }
             GameObject.Find("Player").GetComponent<Movement>().ReversePlayerDir();
+        }
+
+        if (collision.gameObject.CompareTag("OrangePortal")) {
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("OrangePortal");   
+            foreach (GameObject item in taggedObjects) {
+                if (item != collision.gameObject) {
+                    _transform.position = item.GetComponent<Transform>().position + (Vector3) item.GetComponent<Portal>().direction;
+                }
+            }
         }
 
         Bounce();

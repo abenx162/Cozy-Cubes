@@ -9,6 +9,7 @@ TagManager:
   - Bounce
   - OrangePortal
   - Obstacle
+  - Fragile
   layers:
   - Default
   - TransparentFX

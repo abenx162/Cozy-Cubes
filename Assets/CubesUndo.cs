@@ -30,14 +30,20 @@ public class CubesUndo : MonoBehaviour
     {
         bool stopped = GameObject.Find("Player").GetComponent<Movement>().IsStationary();
 
-        if (Input.GetButtonDown("Horizontal") && stopped) {
-            PrevPos.Push(_transform.position);
-        }
+        if (GameObject.Find("Player").GetComponent<Movement>().controllable)
+        { 
+            if (Input.GetButtonDown("Horizontal") && stopped)
+            {
+                PrevPos.Push(_transform.position);
+            }
 
-        if (Input.GetButtonDown("Vertical") && stopped) {
-            PrevPos.Push(_transform.position);
-        }
+            if (Input.GetButtonDown("Vertical") && stopped)
+            {
+                PrevPos.Push(_transform.position);
+            }
+        }        
     }
+
 
     void OnEnable()
         {

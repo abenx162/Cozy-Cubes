@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float MovementSpeed = 5;
+    private float MovementSpeed = 5;
     private Rigidbody2D _rigidbody;
     private Transform _transform;
     private Vector3 v;
     private string dir = "left";
+    public bool controllable = true;
 
     [SerializeField] private Material myMaterial;
 
@@ -62,25 +63,30 @@ public class Movement : MonoBehaviour
             gameObject.tag = "PlayerGroup";
         }    
 
-        if (Input.GetButtonDown("Horizontal") && IsStationary()) {
-            var horimovement = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
-            _rigidbody.velocity = new Vector2(horimovement * MovementSpeed, 0);
-            v = _rigidbody.velocity;
-            dir = horimovement == 1 ? "right" : "left";
-        }
+        if (controllable)
+        {
+            if (Input.GetButtonDown("Horizontal") && IsStationary())
+            {
+                var horimovement = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
+                _rigidbody.velocity = new Vector2(horimovement * MovementSpeed, 0);
+                v = _rigidbody.velocity;
+                dir = horimovement == 1 ? "right" : "left";
+            }
 
-        if (Input.GetButtonDown("Vertical") && IsStationary()) {
-            var vertmovement = Input.GetAxis("Vertical") > 0 ? 1 : -1;
-            _rigidbody.velocity = new Vector2(0, vertmovement * MovementSpeed);
-            v = _rigidbody.velocity;
-            dir = vertmovement == 1 ? "up" : "down";
-        }
+            if (Input.GetButtonDown("Vertical") && IsStationary())
+            {
+                var vertmovement = Input.GetAxis("Vertical") > 0 ? 1 : -1;
+                _rigidbody.velocity = new Vector2(0, vertmovement * MovementSpeed);
+                v = _rigidbody.velocity;
+                dir = vertmovement == 1 ? "up" : "down";
+            }
 
-        if (gameObject.CompareTag("Untagged")) {
-            _rigidbody.velocity = new Vector2(0, 0);
-            GetComponent<AudioSource>().Play();
-        }
-
+            if (gameObject.CompareTag("Untagged"))
+            {
+                _rigidbody.velocity = new Vector2(0, 0);
+                GetComponent<AudioSource>().Play();
+            }
+        }     
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -98,6 +104,15 @@ public class Movement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Bounce")) {
             ReversePlayerDir();
+        }
+
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("PlayerGroup");
+            foreach (GameObject item in taggedObjects)
+            {
+                item.tag = "Untagged";
+            }
         }
 
         if (collision.gameObject.CompareTag("OrangePortal")) {

@@ -22,6 +22,7 @@ public class WinConCheck : MonoBehaviour
         if (GameObject.Find("Player").GetComponent<Movement>().IsStationary() && AllClear()) {
             WinTxt.SetActive(true);
 
+            // records level as completed, unlocks next level, updates high score
             using (var connection = new SqliteConnection(dbName))
             {
                 connection.Open();
@@ -54,6 +55,7 @@ public class WinConCheck : MonoBehaviour
                 connection.Close();
             }
 
+            GameObject.Find("Player").GetComponent<Movement>().controllable = false;
             Invoke("ReturnToLevelSelect", 1);
         }
     }

@@ -25,10 +25,19 @@ EditorBuildSettings:
     guid: c0f6c543684e7174185bfa1daec5a5ca
   - enabled: 1
     path: Assets/Scenes/Level 6.unity
-    guid: 7ab89cc6ed9ae374b86480ea58dc8d68
+    guid: 06d143763e2aa254481d47b0d068209b
   - enabled: 1
     path: Assets/Scenes/Level 7.unity
-    guid: 06d143763e2aa254481d47b0d068209b
+    guid: 7ab89cc6ed9ae374b86480ea58dc8d68
+  - enabled: 1
+    path: Assets/Scenes/Portal Test.unity
+    guid: a47eba05d060c6d4397a0b3590c472a2
+  - enabled: 1
+    path: Assets/Scenes/Bounce Pad Test.unity
+    guid: 508dab5d791c18d46ba418551f3df200
+  - enabled: 1
+    path: Assets/Scenes/Fragile Test.unity
+    guid: 79e4ae0bfa183c04c970f495fa5681f2
   - enabled: 1
     path: Assets/Scenes/Level 8.unity
     guid: 93c7e72028265c540873c3e5d5e90dbb

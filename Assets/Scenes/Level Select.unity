@@ -2325,7 +2325,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 862152156}
         m_TargetAssemblyTypeName: LevelSelecter, Assembly-CSharp
-        m_MethodName: GoToPortal
+        m_MethodName: GoToLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

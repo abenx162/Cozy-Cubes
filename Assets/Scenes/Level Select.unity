@@ -1689,7 +1689,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 698841328}
         m_TargetAssemblyTypeName: LevelSelecter, Assembly-CSharp
-        m_MethodName: GoToBreakable
+        m_MethodName: GoToLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4284,7 +4284,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2095383938}
         m_TargetAssemblyTypeName: LevelSelecter, Assembly-CSharp
-        m_MethodName: GoToBounce
+        m_MethodName: GoToLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

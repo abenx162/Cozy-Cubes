@@ -104,18 +104,4 @@ public class LevelSelecter : MonoBehaviour
         }
     }
 
-    public void GoToBounce()
-    {
-        SceneManager.LoadScene("Bounce Pad Test");
-    }
-
-    public void GoToPortal()
-    {
-        SceneManager.LoadScene("Portal Test");
-    }
-
-    public void GoToBreakable()
-    {
-        SceneManager.LoadScene("Fragile Test");
-    }
 }

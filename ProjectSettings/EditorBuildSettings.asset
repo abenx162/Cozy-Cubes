@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fragile Test.unity
     guid: 79e4ae0bfa183c04c970f495fa5681f2
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 734816a4284b73b468597bf2c32f2a9f
   m_configObjects: {}

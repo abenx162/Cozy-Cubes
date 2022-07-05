@@ -67,7 +67,7 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetButtonDown("Horizontal") && IsStationary())
             {
-                var horimovement = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
+                var horimovement = Input.GetAxisRaw("Horizontal");
                 _rigidbody.velocity = new Vector2(horimovement * MovementSpeed, 0);
                 v = _rigidbody.velocity;
                 dir = horimovement == 1 ? "right" : "left";
@@ -75,7 +75,7 @@ public class Movement : MonoBehaviour
 
             if (Input.GetButtonDown("Vertical") && IsStationary())
             {
-                var vertmovement = Input.GetAxis("Vertical") > 0 ? 1 : -1;
+                var vertmovement = Input.GetAxisRaw("Vertical");
                 _rigidbody.velocity = new Vector2(0, vertmovement * MovementSpeed);
                 v = _rigidbody.velocity;
                 dir = vertmovement == 1 ? "up" : "down";

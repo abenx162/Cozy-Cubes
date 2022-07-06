@@ -2371,7 +2371,7 @@ GameObject:
   - component: {fileID: 332748467}
   - component: {fileID: 332748466}
   - component: {fileID: 332748465}
-  - component: {fileID: 332748464}
+  - component: {fileID: 332748468}
   m_Layer: 5
   m_Name: Prev Page
   m_TagString: Untagged
@@ -2400,19 +2400,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &332748464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332748462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4842665b39201af429c65b0d5e85f10e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pages: {fileID: 1308422589}
 --- !u!114 &332748465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2457,9 +2444,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332748464}
-        m_TargetAssemblyTypeName: PageSelecter, Assembly-CSharp
-        m_MethodName: PrevPage
+      - m_Target: {fileID: 332748468}
+        m_TargetAssemblyTypeName: PageButtons, Assembly-CSharp
+        m_MethodName: Prev
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2507,6 +2494,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332748462}
   m_CullTransparentMesh: 1
+--- !u!114 &332748468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332748462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc43c2864a1384e468edb8a6ff6e9069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages: {fileID: 1308422589}
 --- !u!1 &358646234
 GameObject:
   m_ObjectHideFlags: 0
@@ -7629,11 +7629,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308422589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6905136db53fa48a25e16a4575fb04, type: 3}
+  m_Script: {fileID: 11500000, guid: efef26353b1d7ff47ac99e4235a3947e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPage: 1
-  maxPage: 3
 --- !u!1 &1399906323
 GameObject:
   m_ObjectHideFlags: 0
@@ -9936,7 +9934,7 @@ GameObject:
   - component: {fileID: 1916917430}
   - component: {fileID: 1916917429}
   - component: {fileID: 1916917428}
-  - component: {fileID: 1916917427}
+  - component: {fileID: 1916917431}
   m_Layer: 5
   m_Name: Next Page
   m_TagString: Untagged
@@ -9965,19 +9963,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1916917427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916917425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4842665b39201af429c65b0d5e85f10e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pages: {fileID: 1308422589}
 --- !u!114 &1916917428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10022,9 +10007,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1916917427}
-        m_TargetAssemblyTypeName: PageSelecter, Assembly-CSharp
-        m_MethodName: NextPage
+      - m_Target: {fileID: 1916917431}
+        m_TargetAssemblyTypeName: PageButtons, Assembly-CSharp
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10072,6 +10057,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916917425}
   m_CullTransparentMesh: 1
+--- !u!114 &1916917431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916917425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc43c2864a1384e468edb8a6ff6e9069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages: {fileID: 1308422589}
 --- !u!1 &1935881763
 GameObject:
   m_ObjectHideFlags: 0

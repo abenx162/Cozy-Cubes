@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PageSelecter : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class PageSelecter : MonoBehaviour
 
     IEnumerator MovePage(Vector3 start, Vector3 end, float seconds)
     {
+        GameObject.Find("Prev Page").GetComponent<Button>().interactable = false;
+        GameObject.Find("Next Page").GetComponent<Button>().interactable = false;
+
         float t = 0f;
         while (t <= 1.0)
         {
@@ -21,6 +25,9 @@ public class PageSelecter : MonoBehaviour
             pages.transform.position = Vector3.Lerp(start, end, Mathf.SmoothStep(0f, 1f, t));
             yield return null;
         }
+        
+        GameObject.Find("Prev Page").GetComponent<Button>().interactable = true;
+        GameObject.Find("Next Page").GetComponent<Button>().interactable = true;
     }
 
     public void NextPage()

@@ -10,11 +10,13 @@ public class ResetProgress : MonoBehaviour
 {
 
     private string dbName = "URI=file:LevelDB.db";
+    private Animator transition;
     
     // Start is called before the first frame update
     void Start()
     {
         CreateTable();
+        transition = GameObject.Find("CubeZoom").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -81,6 +83,13 @@ public class ResetProgress : MonoBehaviour
             connection.Close();
         }
 
-        SceneManager.LoadScene("Level Select");
+        IEnumerator GoSelect()
+        {
+            transition.SetTrigger("EndScene");
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene("Level Select");
+        }
+        
+        StartCoroutine(GoSelect());
     }
 }

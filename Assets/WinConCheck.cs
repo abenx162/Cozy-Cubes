@@ -11,10 +11,12 @@ public class WinConCheck : MonoBehaviour
     public GameObject WinTxt;
     private string dbName = "URI=file:LevelDB.db";
     private int levelID;
+    private Animator transition;
 
     void Start()
     {
         levelID = SceneManager.GetActiveScene().buildIndex;
+        transition = GameObject.Find("CubeZoom").GetComponent<Animator>();
     }
 
     void Update()
@@ -56,7 +58,7 @@ public class WinConCheck : MonoBehaviour
             }
 
             GameObject.Find("Player").GetComponent<Movement>().controllable = false;
-            Invoke("ReturnToLevelSelect", 1);
+            StartCoroutine(GoSelect());
         }
     }
 
@@ -71,7 +73,13 @@ public class WinConCheck : MonoBehaviour
         return clear;
     }
 
-    private void ReturnToLevelSelect() {
+    IEnumerator GoSelect()
+    {
+        yield return new WaitForSeconds(1);
+        transition.SetTrigger("EndScene");
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Level Select");
     }
+
+        
 }

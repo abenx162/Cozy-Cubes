@@ -14,12 +14,14 @@ public class LevelSelecter : MonoBehaviour
     private Button btn;
     private string txt;
     private ColorBlock colorblk;
+    private Animator transition;
 
     void Start()
     {
         btn = gameObject.GetComponent<Button>();
         txt = btn.GetComponentInChildren<TextMeshProUGUI>().text;
         colorblk = btn.colors;
+        transition = GameObject.Find("CubeZoom").GetComponent<Animator>();
 
         if (txt != "Restart" && txt != "Select Level" && !IsUnlocked(txt)) {
             btn.interactable = false;
@@ -41,13 +43,27 @@ public class LevelSelecter : MonoBehaviour
     }
 
     public void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    {   
+        IEnumerator Restart()
+        {
+            transition.SetTrigger("EndScene");
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        StartCoroutine(Restart());
     }
 
     public void GoToLevelSelect()
     {
-        SceneManager.LoadScene("Level Select");
+        IEnumerator GoSelect()
+        {
+            transition.SetTrigger("EndScene");
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene("Level Select");
+        }
+
+        StartCoroutine(GoSelect());
     }
 
     private bool IsUnlocked(string id)
@@ -98,9 +114,16 @@ public class LevelSelecter : MonoBehaviour
 
     public void GoToLevel()
     {
+        IEnumerator GoLevel()
+        {
+            transition.SetTrigger("EndScene");
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene("Level " + txt);
+        }
+
         if (IsUnlocked(txt))
         {
-            SceneManager.LoadScene("Level " + txt);
+            StartCoroutine(GoLevel());
         }
     }
 

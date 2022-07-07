@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameStarter : MonoBehaviour
 {
+    private Animator transition;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        transition = GameObject.Find("CubeZoom").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,6 +21,13 @@ public class GameStarter : MonoBehaviour
 
     public void GoToLevelSelect()
     {
-        SceneManager.LoadScene("Level Select");
+        IEnumerator GoSelect()
+        {
+            transition.SetTrigger("EndScene");
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene("Level Select");
+        }
+
+        StartCoroutine(GoSelect());
     }
 }

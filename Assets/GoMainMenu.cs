@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GoMainMenu : MonoBehaviour
 {
+    private Animator transition;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        transition = GameObject.Find("CubeZoom").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,6 +21,14 @@ public class GoMainMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        IEnumerator GoMenu()
+        {
+            transition.SetTrigger("EndScene");
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene("Main Menu");
+        }
+
+        StartCoroutine(GoMenu());
+        
     }
 }

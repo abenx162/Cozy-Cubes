@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level Select.unity
-    guid: 025a835637f4b4a43aed1dc4c10b6dba
+    path: Assets/Scenes/Main Menu.unity
+    guid: 734816a4284b73b468597bf2c32f2a9f
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
@@ -32,12 +32,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 8.unity
     guid: 5445f7334ea14f74ba7ee82bf455c9b6
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Level 9.unity
-    guid: 06d143763e2aa254481d47b0d068209b
+    guid: 00525625323d7a1479dd3b5516f48480
   - enabled: 1
     path: Assets/Scenes/Level 10.unity
     guid: 7209dfbf1cef3b74f9888b255f44fa75
+  - enabled: 1
+    path: Assets/Scenes/Level 11.unity
+    guid: 5ef82da39a31d0f459f4709b752af8e7
+  - enabled: 1
+    path: Assets/Scenes/Level 12.unity
+    guid: 2f0985a059faf5c4986f0ed7841273ee
+  - enabled: 1
+    path: Assets/Scenes/Level 13.unity
+    guid: dc5a2c7b792f48c43957ff742327e986
+  - enabled: 1
+    path: Assets/Scenes/Level Select.unity
+    guid: 025a835637f4b4a43aed1dc4c10b6dba
   - enabled: 1
     path: Assets/Scenes/Portal Test.unity
     guid: a47eba05d060c6d4397a0b3590c472a2
@@ -47,7 +62,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fragile Test.unity
     guid: 79e4ae0bfa183c04c970f495fa5681f2
-  - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: 734816a4284b73b468597bf2c32f2a9f
   m_configObjects: {}

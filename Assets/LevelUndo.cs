@@ -23,7 +23,7 @@ public class LevelUndo : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("u")) {
+        if (Input.GetKeyDown("z")) {
             UndoLevel();
         }
     }

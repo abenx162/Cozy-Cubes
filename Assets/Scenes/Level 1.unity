@@ -2001,6 +2001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72f770b65aab1f47b6b7641b4a9b6cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelTarget: 5
 --- !u!114 &1374371598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,7 +2022,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Moves: \nPrevious Best:"
+  m_text: "Moves: \nPrevious Best:\nTarget:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2110,7 +2111,7 @@ GameObject:
   - component: {fileID: 1402539311}
   - component: {fileID: 1402539310}
   - component: {fileID: 1402539309}
-  - component: {fileID: 1402539308}
+  - component: {fileID: 1402539312}
   m_Layer: 5
   m_Name: Select Level
   m_TagString: Untagged
@@ -2139,18 +2140,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 112}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1402539308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402539306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59eb1646c4b2d4548badd7eab46bcf69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1402539309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,8 +2184,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1402539308}
-        m_TargetAssemblyTypeName: LevelSelecter, Assembly-CSharp
+      - m_Target: {fileID: 1402539312}
+        m_TargetAssemblyTypeName: GameStarter, Assembly-CSharp
         m_MethodName: GoToLevelSelect
         m_Mode: 1
         m_Arguments:
@@ -2245,6 +2234,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402539306}
   m_CullTransparentMesh: 1
+--- !u!114 &1402539312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402539306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737cc6a3de0184a4c8bb25ef41182c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1412277278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,8 +2478,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1503285032}
-        m_TargetAssemblyTypeName: LevelSelecter, Assembly-CSharp
-        m_MethodName: RestartLevel
+        m_TargetAssemblyTypeName: RestartLevel, Assembly-CSharp
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2535,7 +2536,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1503285027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59eb1646c4b2d4548badd7eab46bcf69, type: 3}
+  m_Script: {fileID: 11500000, guid: ea3c2bcda7ee6b74e943a14aa6ce3775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1532338389

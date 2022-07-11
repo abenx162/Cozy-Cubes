@@ -10,6 +10,7 @@ using Mono.Data.Sqlite;
 
 public class MovesCounter : MonoBehaviour
 {
+    public int levelTarget;
     private TextMeshProUGUI textMeshPro;
     private string dbName = "URI=file:LevelDB.db";
     private int oldcount = 0;
@@ -42,6 +43,6 @@ public class MovesCounter : MonoBehaviour
     void Update()
     {
         int count = GameObject.Find("Player").GetComponent<CubesUndo>().Moves();
-        textMeshPro.SetText("Moves: " + count + "\n" + "Previous Best: " + (oldcount == 0 ? "-" : oldcount));
+        textMeshPro.SetText("Moves: " + count + "\n" + "Previous Best: " + (oldcount == 0 ? "-" : oldcount) + "\n" + "Target: " + levelTarget);
     }
 }

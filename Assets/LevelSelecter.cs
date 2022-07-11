@@ -23,11 +23,11 @@ public class LevelSelecter : MonoBehaviour
         colorblk = btn.colors;
         transition = GameObject.Find("CubeZoom").GetComponent<Animator>();
 
-        if (txt != "Restart" && txt != "Select Level" && !IsUnlocked(txt)) {
+        if (!IsUnlocked(txt)) {
             btn.interactable = false;
         }
 
-        if (txt != "Restart" && txt != "Select Level" && IsCompleted(txt)) {
+        if (IsCompleted(txt)) {
             colorblk.normalColor = new Color32(25, 195, 44, 255);
             colorblk.highlightedColor = new Color32(15, 185, 34, 255);
             colorblk.pressedColor = new Color32(0, 170, 19, 255);
@@ -37,33 +37,7 @@ public class LevelSelecter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("r")) {
-            RestartLevel();
-        }
-    }
-
-    public void RestartLevel()
-    {   
-        IEnumerator Restart()
-        {
-            transition.SetTrigger("EndScene");
-            yield return new WaitForSeconds(1);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        StartCoroutine(Restart());
-    }
-
-    public void GoToLevelSelect()
-    {
-        IEnumerator GoSelect()
-        {
-            transition.SetTrigger("EndScene");
-            yield return new WaitForSeconds(1);
-            SceneManager.LoadScene("Level Select");
-        }
-
-        StartCoroutine(GoSelect());
+        
     }
 
     private bool IsUnlocked(string id)

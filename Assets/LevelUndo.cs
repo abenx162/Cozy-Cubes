@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelUndo : MonoBehaviour
 {
     public void UndoLevel() {
-        if (!GameObject.Find("Player").GetComponent<Movement>().IsStationary()) {
+        if (!GameObject.Find("Player").GetComponent<Movement>().IsStationary() || !GameObject.Find("Player").GetComponent<Movement>().controllable) {
             return;
         }
         Object[] blocks = Object.FindObjectsOfType<CubesUndo>();

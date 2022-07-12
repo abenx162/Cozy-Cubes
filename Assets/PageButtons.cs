@@ -5,6 +5,7 @@ using UnityEngine;
 public class PageButtons : MonoBehaviour
 {
     public GameObject pages;
+    private Vector3 defaultPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,11 @@ public class PageButtons : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void SavePos()
+    {
+        defaultPos = transform.position;
     }
 
     public void Next()
@@ -29,11 +35,11 @@ public class PageButtons : MonoBehaviour
 
     public void Hide()
     {
-        transform.position += new Vector3(Screen.width, 0, 0);
+        transform.position = defaultPos + new Vector3(Screen.width, 0, 0);
     }
 
     public void Show()
     {
-        transform.position -= new Vector3(Screen.width, 0, 0);
+        transform.position = defaultPos;
     }
 }

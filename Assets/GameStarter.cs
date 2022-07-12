@@ -26,6 +26,7 @@ public class GameStarter : MonoBehaviour
             transition.SetTrigger("EndScene");
             yield return new WaitForSeconds(1);
             SceneManager.LoadScene("Level Select");
+
         }
 
         StartCoroutine(GoSelect());

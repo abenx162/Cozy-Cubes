@@ -17,6 +17,11 @@ public class ResetProgress : MonoBehaviour
     {
         CreateTable();
         transition = GameObject.Find("CubeZoom").GetComponent<Animator>();
+
+        GameObject.Find("Prev Page").GetComponent<PageButtons>().SavePos();
+        GameObject.Find("Next Page").GetComponent<PageButtons>().SavePos();
+        GameObject.Find("All Pages").GetComponent<PageMovement>().SetPage();
+        GameObject.Find("All Pages").GetComponent<PageMovement>().HideShow();
     }
 
     // Update is called once per frame
@@ -33,6 +38,11 @@ public class ResetProgress : MonoBehaviour
             connection.Open();
             using (var command = connection.CreateCommand())
             {
+                command.CommandText = "CREATE TABLE IF NOT EXISTS " +
+                    "CurrentLevelPage (CurrentPage INTEGER DEFAULT 1);" +
+                    " INSERT INTO CurrentLevelPage DEFAULT VALUES;";
+                command.ExecuteNonQuery();
+
                 command.CommandText = "CREATE TABLE IF NOT EXISTS LevelTable (" +
 	                                    "ID	INTEGER," +
                                         "Completed INTEGER DEFAULT 0," +

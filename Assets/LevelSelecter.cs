@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Mono.Data.Sqlite;
@@ -101,4 +102,8 @@ public class LevelSelecter : MonoBehaviour
         }
     }
 
+    public void Hovered()
+    {
+        GameObject.Find("Level Title").GetComponent<LevelName>().SetLevelText(Int32.Parse(txt));
+    }
 }

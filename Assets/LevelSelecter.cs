@@ -98,6 +98,8 @@ public class LevelSelecter : MonoBehaviour
     private bool IsTarget(string id)
     {
         bool result = false;
+        int[] targetScores = { 0, 5, 34, 21, 12, 17, 13, 21, 29, 42, 64, 10, 13, 22 };
+
 
         if (IsCompleted(id))
         {
@@ -111,7 +113,7 @@ public class LevelSelecter : MonoBehaviour
                     {
                         while (reader.Read())
                         {
-                            return (Convert.ToInt32(reader["BestScore"]) <= Convert.ToInt32(reader["TargetScore"]));
+                            return (Convert.ToInt32(reader["BestScore"]) <= targetScores[Convert.ToInt32(txt)]) && Convert.ToInt32(reader["BestScore"]) != 0;
                         }
 
                         reader.Close();
@@ -120,6 +122,10 @@ public class LevelSelecter : MonoBehaviour
                 connection.Close();
             }
         }
+        
+
+
+
         
         return result;
     }

@@ -13,7 +13,7 @@ public class MovesCounter : MonoBehaviour
     private TextMeshProUGUI textMeshPro;
     private string dbName = "URI=file:LevelDB.db";
     private int oldcount = 0;
-    private int levelTarget = 0;
+    public int levelTarget = 0;
     private int levelID;
 
     // Start is called before the first frame update

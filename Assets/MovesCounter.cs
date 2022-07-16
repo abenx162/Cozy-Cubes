@@ -10,10 +10,10 @@ using Mono.Data.Sqlite;
 
 public class MovesCounter : MonoBehaviour
 {
-    public int levelTarget;
     private TextMeshProUGUI textMeshPro;
     private string dbName = "URI=file:LevelDB.db";
     private int oldcount = 0;
+    private int levelTarget = 0;
     private int levelID;
 
     // Start is called before the first frame update
@@ -31,7 +31,10 @@ public class MovesCounter : MonoBehaviour
                 using (IDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
+                    {
                         oldcount = Convert.ToInt32(reader["BestScore"]);
+                        levelTarget = Convert.ToInt32(reader["TargetScore"]);
+                    }                           
                     reader.Close();
                 }
             }

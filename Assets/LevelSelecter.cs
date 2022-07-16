@@ -34,6 +34,14 @@ public class LevelSelecter : MonoBehaviour
             colorblk.pressedColor = new Color32(0, 170, 19, 255);
             btn.colors = colorblk;
         }
+
+        
+        if(IsTarget(txt))
+        {
+            GameObject medalTemplate = GameObject.Find("Medal Template");
+            Vector3 pos = btn.transform.position + new Vector3(45, 5, 0);
+            GameObject medalClone = GameObject.Instantiate(medalTemplate, pos, Quaternion.identity, btn.transform);
+        }
     }
 
     void Update()
@@ -84,6 +92,35 @@ public class LevelSelecter : MonoBehaviour
             }
             connection.Close();
         }
+        return result;
+    }
+
+    private bool IsTarget(string id)
+    {
+        bool result = false;
+
+        if (IsCompleted(id))
+        {
+            using (var connection = new SqliteConnection(dbName))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM LevelTable WHERE ID = " + id + ";";
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            return (Convert.ToInt32(reader["BestScore"]) <= Convert.ToInt32(reader["TargetScore"]));
+                        }
+
+                        reader.Close();
+                    }
+                }
+                connection.Close();
+            }
+        }
+        
         return result;
     }
 

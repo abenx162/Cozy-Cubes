@@ -48,6 +48,7 @@ public class ResetProgress : MonoBehaviour
                                         "Completed INTEGER DEFAULT 0," +
                                         "Unlocked INTEGER DEFAULT 0," +
                                         "BestScore INTEGER DEFAULT 0," +
+                                        "TargetScore INTEGER DEFAULT 0," +
                                         "PRIMARY KEY(ID AUTOINCREMENT)" +
                                         ");";
                 command.ExecuteNonQuery();

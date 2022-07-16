@@ -39,7 +39,7 @@ public class LevelSelecter : MonoBehaviour
         if(IsTarget(txt))
         {
             GameObject medalTemplate = GameObject.Find("Medal Template");
-            Vector3 pos = btn.transform.position + new Vector3(45, 5, 0);
+            Vector3 pos = btn.transform.position + new Vector3(80, 5, 0);
             GameObject medalClone = GameObject.Instantiate(medalTemplate, pos, Quaternion.identity, btn.transform);
         }
     }

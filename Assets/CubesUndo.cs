@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CubesUndo : MonoBehaviour
 {
-    private Stack<Vector3> PrevPos;
+    private Stack<Vector3> PrevPos = new Stack<Vector3>();
     private Transform _transform;
     private Rigidbody2D _rigidbody;
 
@@ -22,6 +22,7 @@ public class CubesUndo : MonoBehaviour
 
     void Start()
     {
+        PrevPos = new Stack<Vector3>();
         _transform = GetComponent<Transform>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }

@@ -8,7 +8,7 @@ public class LevelUndo : MonoBehaviour
         if (!GameObject.Find("Player").GetComponent<Movement>().IsStationary() || !GameObject.Find("Player").GetComponent<Movement>().controllable) {
             return;
         }
-        Object[] blocks = Object.FindObjectsOfType<CubesUndo>();
+        Object[] blocks = Object.FindObjectsOfType<CubesUndo>(false);
         foreach (Object item in blocks)
         {
             CubesUndo script = (CubesUndo) item;

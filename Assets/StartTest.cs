@@ -18,7 +18,6 @@ public class StartTest : MonoBehaviour
 
     public void Activate()
     {
-        // GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("PlacedBlock");
         foreach (Transform item in GameObject.Find("Placed Blocks").transform)
         {
             MonoBehaviour[] scripts = item.gameObject.GetComponents<MonoBehaviour>();
@@ -26,8 +25,18 @@ public class StartTest : MonoBehaviour
             {
                 script.enabled = true;
             }
+
+            foreach (Transform child in item.transform)
+            {
+                MonoBehaviour[] childScripts = child.gameObject.GetComponents<MonoBehaviour>();
+                foreach (MonoBehaviour script in childScripts)
+                {
+                    script.enabled = true;
+                }
+            }
         }
 
+        GameObject.Find("Player Button").GetComponent<CursorSelector>().StopAllCursors();
         GameObject.Find("End Test").transform.position = gameObject.transform.position;
         gameObject.transform.position += new Vector3(1000, 0, 0);
     }

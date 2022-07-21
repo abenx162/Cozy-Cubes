@@ -10,7 +10,7 @@ TagManager:
   - OrangePortal
   - Obstacle
   - Fragile
-  - PlacedBlock
+  - Cursor
   layers:
   - Default
   - TransparentFX

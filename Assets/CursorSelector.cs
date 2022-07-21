@@ -18,22 +18,40 @@ public class CursorSelector : MonoBehaviour
 
     public void WallButton()
     {
-        GameObject.Find("Wall Cursor").GetComponent<WallCursor>().setActive(true);
-        GameObject.Find("Player Cursor").GetComponent<PlayerCursor>().setActive(false);
-        GameObject.Find("Square Cursor").GetComponent<SquareCursor>().setActive(false);
+        StopAllCursors();
+        GameObject.Find("Wall Cursor").GetComponent<Cursor>().setActive(true);
     }
 
     public void PlayerButton()
     {
-        GameObject.Find("Wall Cursor").GetComponent<WallCursor>().setActive(false);
-        GameObject.Find("Player Cursor").GetComponent<PlayerCursor>().setActive(true);
-        GameObject.Find("Square Cursor").GetComponent<SquareCursor>().setActive(false);
+        StopAllCursors();
+        GameObject.Find("Player Cursor").GetComponent<Cursor>().setActive(true);
     }
 
     public void SquareButton()
     {
-        GameObject.Find("Wall Cursor").GetComponent<WallCursor>().setActive(false);
-        GameObject.Find("Player Cursor").GetComponent<PlayerCursor>().setActive(false);
-        GameObject.Find("Square Cursor").GetComponent<SquareCursor>().setActive(true);
+        StopAllCursors();
+        GameObject.Find("Square Cursor").GetComponent<Cursor>().setActive(true);
+    }
+
+    public void CircleButton()
+    {
+        StopAllCursors();
+        GameObject.Find("Circle Cursor").GetComponent<Cursor>().setActive(true);
+    }
+
+    public void BricksButton()
+    {
+        StopAllCursors();
+        GameObject.Find("Bricks Cursor").GetComponent<Cursor>().setActive(true);
+    }
+
+    public void StopAllCursors()
+    {
+        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Cursor");
+        foreach (GameObject item in taggedObjects)
+        {
+            item.GetComponent<Cursor>().setActive(false);
+        }
     }
 }

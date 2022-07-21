@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCursor : MonoBehaviour
+public class Cursor : MonoBehaviour
 {
     private bool isActive;
     private Transform _transform;
     public GameObject block;
 
-    [SerializeField] private Material myMaterial;
-
     // Start is called before the first frame update
     void Start()
     {
         _transform = GetComponent<Transform>();
-        myMaterial = GetComponent<Renderer>().material;
-        myMaterial.color = new Color32(0, 178, 255, 255);
         isActive = false;    
     }
 
@@ -35,11 +31,10 @@ public class PlayerCursor : MonoBehaviour
     public void setActive(bool tf)
     {
         isActive = tf;
-        if (tf)
+        if (tf) 
         {
             GameObject.Find("Block Drawer").GetComponent<BlockDrawer>().setActiveBlock(block);
-        }
-        else
+        } else 
         {
             _transform.position += new Vector3(Screen.width, 0, 0);
         }

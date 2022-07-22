@@ -46,6 +46,12 @@ public class CursorSelector : MonoBehaviour
         GameObject.Find("Bricks Cursor").GetComponent<Cursor>().setActive(true);
     }
 
+    public void EraserButton()
+    {
+        StopAllCursors();
+        GameObject.Find("Eraser Cursor").GetComponent<Cursor>().setActive(true);
+    }
+
     public void StopAllCursors()
     {
         GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Cursor");

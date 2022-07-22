@@ -33,7 +33,9 @@ public class EndTest : MonoBehaviour
         foreach (Transform item in GameObject.Find("Placed Blocks").transform) {
             MonoBehaviour[] scripts = item.gameObject.GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour script in scripts) {
-                script.enabled = false;
+                if (!script is Erasable) {
+                    script.enabled = false;
+                    }
                 }
             }
         }

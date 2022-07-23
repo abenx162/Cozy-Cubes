@@ -28,15 +28,14 @@ public class EndTest : MonoBehaviour
         StartCoroutine(DisableScripts());
 
         IEnumerator DisableScripts() {
-        yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.1f);
         
-        foreach (Transform item in GameObject.Find("Placed Blocks").transform) {
-            MonoBehaviour[] scripts = item.gameObject.GetComponents<MonoBehaviour>();
-            foreach (MonoBehaviour script in scripts) {
-                if (!script is Erasable) {
-                    script.enabled = false;
-                    }
+            foreach (Transform item in GameObject.Find("Placed Blocks").transform) {
+                MonoBehaviour[] scripts = item.gameObject.GetComponents<MonoBehaviour>();
+                foreach (MonoBehaviour script in scripts) {
+                    script.enabled = false;                                     
                 }
+                item.GetComponent<Erasable>().enabled = true;
             }
         }
         

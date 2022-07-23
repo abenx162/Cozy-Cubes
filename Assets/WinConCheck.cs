@@ -12,6 +12,7 @@ public class WinConCheck : MonoBehaviour
     private string dbName = "URI=file:LevelDB.db";
     private int levelID;
     private Animator transition;
+    private bool DBupdated = false;
 
     void Start()
     {
@@ -21,8 +22,9 @@ public class WinConCheck : MonoBehaviour
 
     void Update()
     {
-        if (GameObject.Find("Player").GetComponent<Movement>().IsStationary() && AllClear()) {
+        if (GameObject.Find("Player").GetComponent<Movement>().IsStationary() && AllClear() && !DBupdated) {
             WinTxt.SetActive(true);
+            DBupdated = true;
 
             // records level as completed, unlocks next level, updates high score
             using (var connection = new SqliteConnection(dbName))
@@ -30,9 +32,30 @@ public class WinConCheck : MonoBehaviour
                 connection.Open();
                 using (var command = connection.CreateCommand())
                 {
-                    command.CommandText = "UPDATE LevelTable SET Unlocked = 1 WHERE ID = " 
-                        + (levelID + 1) + ";";
-                    command.ExecuteNonQuery();
+                    int levelDoneBefore = 0;
+                    command.CommandText = "SELECT Completed from LevelTable WHERE ID = " + levelID + ";";
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                             levelDoneBefore = Convert.ToInt32(reader[0]);
+                        reader.Close();
+                    }
+
+                    if (levelDoneBefore == 0) {
+                        int nextunlock = 0;
+                        command.CommandText = "SELECT ID from LevelTable WHERE Unlocked = 0 LIMIT 1;";
+                        using (IDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                                nextunlock = Convert.ToInt32(reader[0]);
+                            reader.Close();
+                        }
+
+                        command.CommandText = "UPDATE LevelTable SET Unlocked = 1 WHERE ID = " 
+                            + nextunlock + ";";
+                        command.ExecuteNonQuery();
+                    }
+
                     command.CommandText = "UPDATE LevelTable SET Completed = 1 WHERE ID = "
                         + levelID + ";";
                     command.ExecuteNonQuery();

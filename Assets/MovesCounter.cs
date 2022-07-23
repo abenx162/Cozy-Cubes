@@ -33,7 +33,6 @@ public class MovesCounter : MonoBehaviour
                     while (reader.Read())
                     {
                         oldcount = Convert.ToInt32(reader["BestScore"]);
-                        levelTarget = Convert.ToInt32(reader["TargetScore"]);
                     }                           
                     reader.Close();
                 }

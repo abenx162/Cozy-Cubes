@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndTest : MonoBehaviour
 {
@@ -22,8 +23,15 @@ public class EndTest : MonoBehaviour
         while (GameObject.Find("Player").GetComponent<CubesUndo>().Moves() > 0) {
             GameObject.Find("Temp Undo Button").GetComponent<LevelUndo>().UndoLevel();
         }
+
         GameObject.Find("Test Play").transform.position = gameObject.transform.position;
         gameObject.transform.position += new Vector3(1000, 0, 0);
+        GameObject.Find("Wall Button").GetComponent<Button>().interactable = true;
+        GameObject.Find("Player Button").GetComponent<Button>().interactable = true;
+        GameObject.Find("Square Button").GetComponent<Button>().interactable = true;
+        GameObject.Find("Circle Button").GetComponent<Button>().interactable = true;
+        GameObject.Find("Bricks Button").GetComponent<Button>().interactable = true;
+        GameObject.Find("Eraser Button").GetComponent<Button>().interactable = true;
         
         StartCoroutine(DisableScripts());
 

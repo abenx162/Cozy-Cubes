@@ -98,7 +98,7 @@ public class LevelSelecter : MonoBehaviour
     private bool IsTarget(string id)
     {
         bool result = false;
-        int[] targetScores = { 0, 5, 34, 21, 12, 17, 13, 21, 29, 42, 64, 10, 13, 22 };
+        int[] targetScores = { 0, 2, 3, 10, 7, 21, 7, 20, 12, 17, 13, 22, 21, 17, 7, 29, 42, 64, 10, 13, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 
         if (IsCompleted(id))

@@ -48,7 +48,6 @@ public class ResetProgress : MonoBehaviour
                                         "Completed INTEGER DEFAULT 0," +
                                         "Unlocked INTEGER DEFAULT 0," +
                                         "BestScore INTEGER DEFAULT 0," +
-                                        "TargetScore INTEGER DEFAULT 0," +
                                         "PRIMARY KEY(ID AUTOINCREMENT)" +
                                         ");";
                 command.ExecuteNonQuery();
@@ -73,6 +72,10 @@ public class ResetProgress : MonoBehaviour
 
                 command.CommandText = "UPDATE LevelTable SET Unlocked = 1 WHERE ID = 1;";
                 command.ExecuteNonQuery();
+                command.CommandText = "UPDATE LevelTable SET Unlocked = 1 WHERE ID = 2;";
+                command.ExecuteNonQuery();
+                command.CommandText = "UPDATE LevelTable SET Unlocked = 1 WHERE ID = 3;";
+                command.ExecuteNonQuery();
             }
             connection.Close();
         }
@@ -89,6 +92,10 @@ public class ResetProgress : MonoBehaviour
                 command.CommandText = "UPDATE LevelTable SET Completed = 0, Unlocked = 0, BestScore = 0;";
                 command.ExecuteNonQuery();
                 command.CommandText = "UPDATE LevelTable SET Unlocked = 1 WHERE ID = 1;";
+                command.ExecuteNonQuery();
+                command.CommandText = "UPDATE LevelTable SET Unlocked = 1 WHERE ID = 2;";
+                command.ExecuteNonQuery();
+                command.CommandText = "UPDATE LevelTable SET Unlocked = 1 WHERE ID = 3;";
                 command.ExecuteNonQuery();
             }
             connection.Close();

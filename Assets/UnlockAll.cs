@@ -23,7 +23,7 @@ public class UnlockAll : MonoBehaviour
             connection.Open();
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "UPDATE LevelTable SET Completed = 1, Unlocked = 1, BestScore = 0;";
+                command.CommandText = "UPDATE LevelTable SET Unlocked = 1;";
                 command.ExecuteNonQuery();
             }
             connection.Close();

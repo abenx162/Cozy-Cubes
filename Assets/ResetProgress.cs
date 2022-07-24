@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mono.Data.Sqlite;
@@ -12,7 +12,6 @@ public class ResetProgress : MonoBehaviour
     private string dbName = "URI=file:LevelDB.db";
     private Animator transition;
     
-    // Start is called before the first frame update
     void Start()
     {
         CreateTable();
@@ -24,7 +23,6 @@ public class ResetProgress : MonoBehaviour
         GameObject.Find("All Pages").GetComponent<PageMovement>().HideShow();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

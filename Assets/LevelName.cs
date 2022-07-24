@@ -21,7 +21,7 @@ public class LevelName : MonoBehaviour
                                                     "Ascending Steps",
                                                     "Broken Staircase",
                                                     "Blossom",
-                                                    "Partial Credit",
+                                                    "Finishing Touches",
                                                     "Around the World",
                                                     "Middle Trouble",
                                                     "Minefield",

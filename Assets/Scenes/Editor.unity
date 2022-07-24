@@ -1454,10 +1454,9 @@ Transform:
   m_LocalPosition: {x: 2328.1157, y: 901.8724, z: -8.207446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 905963303}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &679154986
 GameObject:
@@ -2110,7 +2109,6 @@ GameObject:
   - component: {fileID: 905963303}
   - component: {fileID: 905963304}
   - component: {fileID: 905963305}
-  - component: {fileID: 905963306}
   m_Layer: 0
   m_Name: Temp Undo Button
   m_TagString: Untagged
@@ -2125,13 +2123,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905963302}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55, y: -306, z: 8.207446}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2273.1157, y: 595.8724, z: 0}
   m_LocalScale: {x: 287.33414, y: 223.55827, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 650729117}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &905963304
 SpriteRenderer:
@@ -2195,18 +2193,6 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 159d9f4a2eb17ce4f8313a762907147e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &905963306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905963302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25d7acdc3493da47a7251a806fe5f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1001355387
@@ -3076,6 +3062,7 @@ GameObject:
   - component: {fileID: 1368756922}
   - component: {fileID: 1368756921}
   - component: {fileID: 1368756920}
+  - component: {fileID: 1368756923}
   m_Layer: 5
   m_Name: Save Level
   m_TagString: Untagged
@@ -3129,7 +3116,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3148,9 +3135,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GoMainMenu, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+      - m_Target: {fileID: 1368756923}
+        m_TargetAssemblyTypeName: SaveLevel, Assembly-CSharp
+        m_MethodName: SaveLeveltoDB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3198,6 +3185,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368756918}
   m_CullTransparentMesh: 1
+--- !u!114 &1368756923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368756918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a15866c66ab73d840ae741520bc27917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1375501039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4885,7 +4884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058752806}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.95, y: 1.3, z: 0}
+  m_LocalPosition: {x: -14.98, y: -1.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -37,6 +37,8 @@ public class StartTest : MonoBehaviour
             }
         }
 
+        GameObject.Find("Temp Undo Button").GetComponent<LevelUndo>().enabled = true;
+
         GameObject.Find("Player Button").GetComponent<CursorSelector>().StopAllCursors();
         GameObject.Find("End Test").transform.position = gameObject.transform.position;
         GameObject.Find("Wall Button").GetComponent<Button>().interactable = false;
@@ -45,6 +47,7 @@ public class StartTest : MonoBehaviour
         GameObject.Find("Circle Button").GetComponent<Button>().interactable = false;
         GameObject.Find("Bricks Button").GetComponent<Button>().interactable = false;
         GameObject.Find("Eraser Button").GetComponent<Button>().interactable = false;
+        GameObject.Find("Save Level").GetComponent<Button>().interactable = false;
         gameObject.transform.position += new Vector3(1000, 0, 0);
     }
 }

@@ -24,6 +24,8 @@ public class EndTest : MonoBehaviour
             GameObject.Find("Temp Undo Button").GetComponent<LevelUndo>().UndoLevel();
         }
 
+        GameObject.Find("Temp Undo Button").GetComponent<LevelUndo>().enabled = false;
+
         GameObject.Find("Test Play").transform.position = gameObject.transform.position;
         gameObject.transform.position += new Vector3(1000, 0, 0);
         GameObject.Find("Wall Button").GetComponent<Button>().interactable = true;
@@ -32,6 +34,7 @@ public class EndTest : MonoBehaviour
         GameObject.Find("Circle Button").GetComponent<Button>().interactable = true;
         GameObject.Find("Bricks Button").GetComponent<Button>().interactable = true;
         GameObject.Find("Eraser Button").GetComponent<Button>().interactable = true;
+        GameObject.Find("Save Level").GetComponent<Button>().interactable = true;
         
         StartCoroutine(DisableScripts());
 

@@ -3284,7 +3284,7 @@ GameObject:
   - component: {fileID: 1378661026}
   - component: {fileID: 1378661029}
   m_Layer: 5
-  m_Name: Test Play
+  m_Name: Test Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4434,7 +4434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test Play
+  m_text: Test Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ef27bcd75e52c44ab5edbe3fa7839d2, type: 2}
   m_sharedMaterial: {fileID: 1368168830636336460, guid: 1ef27bcd75e52c44ab5edbe3fa7839d2, type: 2}

@@ -14,19 +14,28 @@ public class EndTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("r"))
+        {
+            Restart();
+        }
+    }
+
+    private void Restart()
+    {
+        GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        while (GameObject.Find("Player").GetComponent<CubesUndo>().Moves() > 0)
+        {
+            GameObject.Find("Temp Undo Button").GetComponent<LevelUndo>().UndoLevel();
+        }
     }
 
     public void Deactivate()
     {
-        GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        while (GameObject.Find("Player").GetComponent<CubesUndo>().Moves() > 0) {
-            GameObject.Find("Temp Undo Button").GetComponent<LevelUndo>().UndoLevel();
-        }
+        Restart();
 
         GameObject.Find("Temp Undo Button").GetComponent<LevelUndo>().enabled = false;
 
-        GameObject.Find("Test Play").transform.position = gameObject.transform.position;
+        GameObject.Find("Test Level").transform.position = gameObject.transform.position;
         gameObject.transform.position += new Vector3(1000, 0, 0);
         GameObject.Find("Wall Button").GetComponent<Button>().interactable = true;
         GameObject.Find("Player Button").GetComponent<Button>().interactable = true;

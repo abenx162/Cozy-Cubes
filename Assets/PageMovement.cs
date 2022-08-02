@@ -14,7 +14,7 @@ public class PageMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxPage = 2; //transform.childCount;
+        maxPage = 3; //transform.childCount;
     }
 
     // Update is called once per frame

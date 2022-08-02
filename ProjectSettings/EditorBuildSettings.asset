@@ -52,21 +52,30 @@ EditorBuildSettings:
     guid: aed3625e3a5fa1547928875a1db3c78e
   - enabled: 1
     path: Assets/Scenes/Level 15.unity
-    guid: 5445f7334ea14f74ba7ee82bf455c9b6
+    guid: 73a982d7271e4ab4f9a24a73e25a6717
   - enabled: 1
     path: Assets/Scenes/Level 16.unity
-    guid: 00525625323d7a1479dd3b5516f48480
+    guid: 2b9e1060c17574c459074c1cde94cb2b
   - enabled: 1
     path: Assets/Scenes/Level 17.unity
-    guid: 7209dfbf1cef3b74f9888b255f44fa75
+    guid: 5445f7334ea14f74ba7ee82bf455c9b6
   - enabled: 1
     path: Assets/Scenes/Level 18.unity
-    guid: 5ef82da39a31d0f459f4709b752af8e7
+    guid: 9fcef26ba08c31d46aba719baecf583c
   - enabled: 1
     path: Assets/Scenes/Level 19.unity
-    guid: 2f0985a059faf5c4986f0ed7841273ee
+    guid: 00525625323d7a1479dd3b5516f48480
   - enabled: 1
     path: Assets/Scenes/Level 20.unity
+    guid: 7209dfbf1cef3b74f9888b255f44fa75
+  - enabled: 1
+    path: Assets/Scenes/Level 21.unity
+    guid: 5ef82da39a31d0f459f4709b752af8e7
+  - enabled: 1
+    path: Assets/Scenes/Level 22.unity
+    guid: 2f0985a059faf5c4986f0ed7841273ee
+  - enabled: 1
+    path: Assets/Scenes/Level 23.unity
     guid: dc5a2c7b792f48c43957ff742327e986
   - enabled: 1
     path: Assets/Scenes/Level Select.unity

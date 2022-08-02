@@ -22,9 +22,12 @@ public class LevelName : MonoBehaviour
                                                     "Broken Staircase",
                                                     "Blossom",
                                                     "Finishing Touches",
+                                                    "Minefield",
+                                                    "Deja Vu",
+                                                    "Lost and Found",
                                                     "Around the World",
                                                     "Middle Trouble",
-                                                    "Minefield",
+                                                    "Megamined",
                                                     "Bounce Pad Demo",
                                                     "Fragile Blocks Demo",
                                                     "Portal Demo"};

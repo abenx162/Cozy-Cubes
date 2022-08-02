@@ -35,12 +35,12 @@ public class CubesUndo : MonoBehaviour
         { 
             if (Input.GetButtonDown("Horizontal") && stopped)
             {
-                PrevPos.Push(_transform.position);
+                PrevPos.Push(new Vector3(Mathf.Round(_transform.position.x + 0.5f) - 0.5f, Mathf.Round(_transform.position.y + 0.5f) - 0.5f, 0));
             }
 
             if (Input.GetButtonDown("Vertical") && stopped)
             {
-                PrevPos.Push(_transform.position);
+                PrevPos.Push(new Vector3(Mathf.Round(_transform.position.x + 0.5f) - 0.5f, Mathf.Round(_transform.position.y + 0.5f) - 0.5f, 0));
             }
         }        
     }

@@ -39,7 +39,7 @@ public class LevelSelecter : MonoBehaviour
         if(IsTarget(txt))
         {
             GameObject medalTemplate = GameObject.Find("Medal Template");
-            Vector3 pos = btn.transform.position + new Vector3(80, 5, 0);
+            Vector3 pos = btn.transform.position + new Vector3(87, 5, 0);
             GameObject medalClone = GameObject.Instantiate(medalTemplate, pos, Quaternion.identity, btn.transform);
         }
     }
@@ -98,7 +98,7 @@ public class LevelSelecter : MonoBehaviour
     private bool IsTarget(string id)
     {
         bool result = false;
-        int[] targetScores = { 0, 2, 3, 10, 7, 21, 7, 20, 12, 17, 13, 22, 21, 17, 7, 29, 42, 64, 10, 13, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        int[] targetScores = { 0, 2, 3, 10, 7, 21, 7, 20, 12, 17, 13, 22, 21, 17, 7, 18, 40, 29, 27, 42, 64, 10, 13, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 
         if (IsCompleted(id))

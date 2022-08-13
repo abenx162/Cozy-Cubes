@@ -28,7 +28,14 @@ public class LevelName : MonoBehaviour
                                                     "Around the World",
                                                     "Middle Trouble",
                                                     "Megamined",
+                                                    "Bounce",
+                                                    "Trap",
                                                     "Bounce Pad Demo",
+                                                    "",
+                                                    "",
+                                                    "",
+                                                    "",
+                                                    "",
                                                     "Fragile Blocks Demo",
                                                     "Portal Demo"};
 

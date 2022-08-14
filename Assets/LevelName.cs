@@ -12,32 +12,32 @@ public class LevelName : MonoBehaviour
                                                     "Two's a Party",
                                                     "Lucky Clover",
                                                     "Initial Prep",
-                                                    "Three's a Crowd",
+                                                    "Three's a Crowd", // 5
                                                     "Stepping Stone",
                                                     "Bottleneck",
                                                     "Magic Square",
                                                     "Trial and Error",
-                                                    "Gridlocked",
+                                                    "Gridlocked", // 10
                                                     "Ascending Steps",
                                                     "Broken Staircase",
                                                     "Blossom",
                                                     "Finishing Touches",
-                                                    "Minefield",
+                                                    "Minefield", // 15
                                                     "Deja Vu",
                                                     "Lost and Found",
                                                     "Around the World",
                                                     "Middle Trouble",
-                                                    "Megamined",
+                                                    "Megamined", // 20
                                                     "Bounce",
                                                     "Trap",
-                                                    "Bounce Pad Demo",
-                                                    "",
-                                                    "",
-                                                    "",
-                                                    "",
-                                                    "",
-                                                    "Fragile Blocks Demo",
-                                                    "Portal Demo"};
+                                                    "Bounce Bounce Bounce",
+                                                    "Have a Break",
+                                                    "Have a Kit Kat", // 25
+                                                    "Compact",
+                                                    "Glass Wall",
+                                                    "In Case of Emergency",
+                                                    "Big Fan",
+                                                    "Thinking with Portals!"};
 
 
     // Start is called before the first frame update

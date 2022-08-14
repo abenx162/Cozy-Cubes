@@ -803,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72f770b65aab1f47b6b7641b4a9b6cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTarget: 23
+  levelTarget: 22
 --- !u!114 &640172152
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class PageMovement : MonoBehaviour
     void Start()
     {
         maxPage = 3; //transform.childCount;
+        HideShow();
     }
 
     // Update is called once per frame

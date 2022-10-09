@@ -30,7 +30,7 @@ public class LevelName : MonoBehaviour
                                                     "Megamined", // 20
                                                     "Bounce",
                                                     "Trap",
-                                                    "Bounce Bounce Bounce",
+                                                    "Flexible Manoeuvres",
                                                     "Have a Break",
                                                     "Have a Kit Kat", // 25
                                                     "Compact",
